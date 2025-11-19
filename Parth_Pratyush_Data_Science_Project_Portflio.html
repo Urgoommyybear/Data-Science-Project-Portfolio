@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth Pratyush | Data Science Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for aesthetic labels -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Load Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    <style>
+        /* Custom styles for the portfolio */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            scroll-behavior: smooth;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        /* Custom spinner style */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4f46e5;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation Bar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Name -->
+                <a href="#" class="text-2xl font-bold text-indigo-600 hover:text-indigo-800 transition duration-300">
+                    Parth Pratyush
+                </a>
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">About</a>
+                    <a href="#skills" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Skills</a>
+                    <a href="#projects" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Projects</a>
+                    <a href="#assistant" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Assistant</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Contact</a>
+                </nav>
+                <!-- Mobile Menu Button (Placeholder for JS functionality if needed) -->
+                <button class="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-100 focus:outline-none transition duration-300">
+                    <!-- Icon for Menu -->
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (About Me) -->
+    <section id="about" class="pt-20 pb-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="order-2 md:order-1 md:col-span-2 text-center md:text-left">
+                    <p class="text-lg font-semibold text-indigo-600 mb-2">Hello, I'm</p>
+                    <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">
+                        Parth Pratyush, <span class="text-indigo-600">Data Science</span>
+                    </h1>
+                    <p class="text-gray-600 text-lg mb-6 max-w-2xl mx-auto md:mx-0">
+                        I transform complex data into clear, actionable insights using Python, R, and specialised machine learning techniques. My focus is on building robust predictive models and driving business strategy through data visualisation and statistical rigour.
+                    </p>
+                    <div class="space-x-4">
+                        <a href="#projects" class="inline-block bg-indigo-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+                            View All Projects
+                        </a>
+                        <a href="https://www.linkedin.com/in/parth-pratyush/" target="_blank" class="inline-block border border-gray-300 text-gray-700 font-medium py-3 px-6 rounded-lg hover:bg-gray-100 transition duration-300">
+                            LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">My Core Expertise</h2>
+            <p class="text-gray-600 text-lg mb-12">Deep knowledge in Generative AI, Computer Vision, and end-to-end ML production.</p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Skill 1: Python -->
+                <div class="p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <p class="text-xl font-semibold text-indigo-600">Python</p>
+                    <p class="text-sm text-gray-500">Core language</p>
+                </div>
+                <!-- Skill 2: Deep Learning -->
+                <div class="p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <p class="text-xl font-semibold text-indigo-600">PyTorch/TF</p>
+                    <p class="text-sm text-gray-500">Deep Learning</p>
+                </div>
+                <!-- Skill 3: LLMs/NLP -->
+                <div class="p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <p class="text-xl font-semibold text-indigo-600">LLMs/Hugging Face</p>
+                    <p class="text-sm text-gray-500">Generative AI</p>
+                </div>
+                <!-- Skill 4: SQL/Databases -->
+                <div class="p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <p class="text-xl font-semibold text-indigo-600">SQL/NoSQL</p>
+                    <p class="text-sm text-gray-500">Data Management</p>
+                </div>
+                <!-- Skill 5: Computer Vision -->
+                <div class="p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <p class="text-xl font-semibold text-indigo-600">Computer Vision</p>
+                    <p class="text-sm text-gray-500">YOLO/Classification</p>
+                </div>
+                <!-- Skill 6: MLOps -->
+                <div class="p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <p class="text-xl font-semibold text-indigo-600">MLOps</p>
+                    <p class="text-sm text-gray-500">Deployment/Pipeline</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (Comprehensive List) -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">My Projects</h2>
+            <p class="text-gray-600 text-lg mb-12 text-center">A showcase of work across Generative AI, Computer Vision, and Predictive Analytics.</p>
+
+            
+            <!-- Generative AI & LLMs Category -->
+            <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-6 border-b-2 pb-2 text-indigo-600 flex items-center">
+                <i data-lucide="sparkles" class="w-6 h-6 mr-2"></i> Generative AI & Large Language Models (LLMs)
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- GPT/Text Generation -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Custom Text Generation Engine</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">14_Build_Your_Own_GPT...</p>
+                        <p class="text-gray-700 text-sm">Engineered a personalized **GPT model from fundamental principles**, demonstrating deep knowledge of transformer architecture and sequence modeling for novel content generation.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/14_Build_Your_Own_GPT_Creating_a_Custom_Text_Generation_Engine.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Hugging Face / NLP Pipelines -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">AI Swiss Army Knife: Hugging Face Pipelines</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">11_The_AI_Swiss_Army_Knife_...</p>
+                        <p class="text-gray-700 text-sm">Showcasing rapid prototyping using **Hugging Face pipelines** to achieve one-line solutions for diverse NLP tasks like translation, summarization, and question answering.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/11_The_AI_Swiss_Army_Knife_One_Line_Solutions_with_Hugging_Face_Pipelines.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- RAG Chatbot -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">RAG Chatbot: Chat with Your Knowledge Base</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">18_Chat_with_Your_Knowledge_Base_...</p>
+                        <p class="text-gray-700 text-sm">Developed a **Retrieval-Augmented Generation (RAG) chatbot** for enterprise use, ensuring responses are accurate and grounded in a proprietary knowledge base.</p>
+                        <a href="https://github.com/YourGitHubProfile/your-repo/tree/main/18_Chat_with_Your_Knowledge_Base_Building_a_Powerful_RAG_Chatbot" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Computer Vision (CV) Category -->
+            <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6 border-b-2 pb-2 text-emerald-600 flex items-center">
+                <i data-lucide="eye" class="w-6 h-6 mr-2"></i> Computer Vision (CV)
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Digit Recognizer -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Vision AI Fundamentals: Digit Recognizer</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">8_Vision_AI_Fundamentals_...</p>
+                        <p class="text-gray-700 text-sm">Built a **CNN-based digit recognition model** from scratch, mastering the foundational concepts of convolution, pooling, and activation layers.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/8_Vision_AI_Fundamentals_Building_a_Digit_Recognizer_from_Scratch.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Transfer Learning -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Advanced Classification with Transfer Learning</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">9_Advanced_Vision_AI_Fast_Tracking_...</p>
+                        <p class="text-gray-700 text-sm">Implemented **Transfer Learning** using pre-trained weights (e.g., VGG, ResNet) to achieve high-accuracy image classification on novel datasets efficiently.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/9_Advanced_Vision_AI_Fast_Tracking_Image_Classification_with_Transfer_Learning.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Style Transfer -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Creative AI: Neural Style Transfer</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">Creative_AI_Generating_Art_...</p>
+                        <p class="text-gray-700 text-sm">Developed a network to merge the photographic content of one image with the artistic style of another using **VGG layers and optimization techniques**.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/Creative_AI_Generating_Art_with_Neural_Style_Transfer.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Object Detection -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Object Detection with YOLO</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">Object_Detection_with_YOLO.ipynb</p>
+                        <p class="text-gray-700 text-sm">Implemented a cutting-edge **YOLO (You Only Look Once)** model for fast, real-time object detection and localization within video streams and images.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/Object_Detection_with_YOLO.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Predictive Modeling & Business Analytics Category -->
+            <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6 border-b-2 pb-2 text-yellow-600 flex items-center">
+                <i data-lucide="trending-up" class="w-6 h-6 mr-2"></i> Predictive Modeling & Business Analytics
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Housing Market Trends -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Predicting Housing Market Trends with AI</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">3._Predicting_Housing_Market_Trends_...</p>
+                        <p class="text-gray-700 text-sm">Applied advanced **regression techniques** (e.g., XGBoost, Linear Regression) to forecast real estate prices based on socio-economic and geographical features.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/3._Predicting_Housing_Market_Trends_with_AI.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Future Store Sales -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Forecasting Future Store Sales</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">6_Predicting_Future_Store_Sales_...</p>
+                        <p class="text-gray-700 text-sm">Developed and compared **time series forecasting models** (e.g., Prophet, ARIMA) to accurately predict retail demand and optimize supply chain logistics.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/6_Predicting_Future_Store_Sales_with_AI.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Stock Price Prediction -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Stock Price Prediction (Nifty 50)</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">Stock_Price_Prediction_Nifty_50.ipynb</p>
+                        <p class="text-gray-700 text-sm">Used **LSTM Recurrent Neural Networks** to model complex sequential data and predict short-term stock price movements for a major market index.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/Stock_Price_Prediction_Nifty_50.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Heart Disease Predictor -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">AI in Healthcare: Heart Disease Predictor</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">4_AI_in_Healthcare_Building_a_...</p>
+                        <p class="text-gray-700 text-sm">A critical **classification project** using patient data to predict heart disease risk, focusing on model interpretability (SHAP/LIME) for clinical use.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/4_AI_in_Healthcare_Building_a_Life_Saving_Heart_Disease_Predictor.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Customer Churn -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Preventing Customer Churn with Feature Transformation</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">7_Preventing_Customer_Churn_...</p>
+                        <p class="text-gray-700 text-sm">Focused on advanced **feature engineering** and binary classification models to predict customer defection and inform targeted retention campaigns.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/7_Preventing_Customer_Churn_with_Feature_Transformation.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Customer Segmentation -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Smart Segmentation: Customer Personas with AI</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">5_Smart_Segmentation_Unlocking_...</p>
+                        <p class="text-gray-700 text-sm">Employed **unsupervised learning (K-Means, DBSCAN)** to segment customers based on purchasing behavior, creating actionable marketing personas.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/5_Smart_Segmentation_Unlocking_Customer_Personas_with_AI.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Netflix Content Strategy -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">An Inside Look at Netflix's Content Strategy</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">2_Cracking_the_Code_An_Inside_...</p>
+                        <p class="text-gray-700 text-sm">Comprehensive **Exploratory Data Analysis (EDA)** on Netflix's content catalog to uncover strategic patterns in acquisition and production over time.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/2_Cracking_the_Code_An_Inside_Look_at_Netflix's_Content_Strategy.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Titanic Survival Analysis -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Data Storytelling: Titanic Survival Analysis</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">1_Data_Storytelling_Analysing_...</p>
+                        <p class="text-gray-700 text-sm">A foundational project focusing on **statistical inference and data visualization** to analyze factors impacting survival rates aboard the Titanic.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/1_Data_Storytelling_Analysing_Survival_on_the_Titanic.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Automation & AI Agents Category -->
+            <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6 border-b-2 pb-2 text-rose-600 flex items-center">
+                <i data-lucide="bot" class="w-6 h-6 mr-2"></i> Automation & AI Agents
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Autonomous Market Analyst -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Autonomous Market Analyst Agent</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">19_Autonomous_Market_Analyst_...</p>
+                        <p class="text-gray-700 text-sm">Developed a multi-step **AI agent system** capable of deep web research, data synthesis, and autonomous generation of market analysis reports.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/19_Autonomous_Market_Analyst_Building_AI_Agents_for_Deep_Research.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- AI Browser Agent -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Web Automation on Autopilot (AI Browser Agent)</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">20_Web_Automation_on_Autopilot_...</p>
+                        <p class="text-gray-700 text-sm">Built a sophisticated agent to perform complex **web interactions and scraping tasks** guided solely by natural language instructions, demonstrating tool use.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/20_Web_Automation_on_Autopilot_Building_an_AI_Browser_Agent.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Newsletter Pipeline -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">AI-Powered Newsletter Pipeline on n8n</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">21_Building_an_AI_Powered_Newsletter_...</p>
+                        <p class="text-gray-700 text-sm">Designed and deployed an automated **MLOps workflow** using n8n to generate, curate, and distribute content without human intervention.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/21_Building_an_AI_Powered_Newsletter_Pipeline_on_n8n.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- NL to SQL Generator -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Natural Language to SQL Generator</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">15_Talk_to_Your_Data_Building_a_...</p>
+                        <p class="text-gray-700 text-sm">Built an interface using LLMs to convert plain English queries into **executable SQL code**, enabling non-technical users to access database insights.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/15_Talk_to_Your_Data_Building_a_Natural_Language_to_SQL_Generator.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Smart OCR Bot -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Intelligent Document Automation (Smart OCR Bot)</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">16_Intelligent_Document_Automation_...</p>
+                        <p class="text-gray-700 text-sm">Developed an intelligent **OCR solution** capable of extracting structured data from complex, unstructured documents with high accuracy and validation.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/16_Intelligent_Document_Automation_Building_a_Smart_OCR_Bot.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+                <!-- Custom Search Engine -->
+                <div class="project-card bg-white rounded-xl border border-gray-200">
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Build Your Own Intelligent Internet Search Engine</h4>
+                        <p class="text-sm text-gray-500 mb-3 font-mono">17_Build_Your_Own_Intelligent_Internet_...</p>
+                        <p class="text-gray-700 text-sm">Created a custom search solution focusing on **semantic indexing and advanced ranking algorithms** to deliver more relevant search results than traditional methods.</p>
+                        <a href="https://colab.research.google.com/github/YourGitHubProfile/your-repo/blob/main/17_Build_Your_Own_Intelligent_Internet_Search_Engine.ipynb" target="_blank" class="text-indigo-500 hover:text-indigo-700 text-sm mt-3 inline-block font-medium transition duration-300">View Project »</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Data Science Assistant Section (Gemini API Integration) -->
+    <section id="assistant" class="py-16 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 text-center">Data Science Project Assistant ✨</h2>
+            <p class="text-gray-600 text-lg mb-8 text-center">
+                Brainstorm, validate, and refine your data science project ideas with the power of the Gemini LLM.
+            </p>
+
+            <div class="bg-white p-8 rounded-xl shadow-2xl border border-indigo-200">
+                <label for="project-prompt" class="block text-lg font-medium text-gray-700 mb-3">
+                    Enter your project idea:
+                </label>
+                <textarea id="project-prompt" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150" placeholder="E.g., Predict house prices in Seattle using regression and public datasets."></textarea>
+                
+                <button onclick="generateProjectInsight()" id="generate-button" class="mt-4 w-full sm:w-auto inline-flex items-center justify-center bg-indigo-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.01] disabled:opacity-50 disabled:cursor-not-allowed">
+                    Generate Insight ✨
+                </button>
+                
+                <div id="loading-indicator" class="mt-4 hidden justify-center items-center">
+                    <div class="loader"></div>
+                    <span class="ml-3 text-indigo-600 font-medium">Analyzing project idea...</span>
+                </div>
+                
+                <div id="output-area" class="mt-8 pt-6 border-t border-gray-200 hidden">
+                    <h3 class="text-xl font-bold text-indigo-600 mb-4">Analysis & Next Steps:</h3>
+                    <div id="gemini-output" class="prose max-w-none text-gray-700 leading-relaxed">
+                        <!-- Gemini Output will be inserted here -->
+                    </div>
+                </div>
+                
+                <div id="error-message" class="mt-4 text-red-500 font-medium hidden p-3 bg-red-50 rounded-lg border border-red-200">
+                    <!-- Error messages will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+            <p class="text-gray-600 text-lg mb-8">
+                I'm currently seeking new opportunities and collaborative projects. Feel free to reach out to discuss data science, machine learning, or potential roles!
+            </p>
+            <div class="space-y-4">
+                <a href="mailto:your.email@example.com" class="inline-flex items-center justify-center w-full sm:w-auto bg-indigo-600 text-white font-medium py-3 px-8 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/parth-pratyush/" target="_blank" class="inline-flex items-center justify-center w-full sm:w-auto bg-white border border-gray-300 text-gray-700 font-medium py-3 px-8 rounded-lg hover:bg-gray-100 transition duration-300">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.23 0H1.77C.79 0 0 .77 0 1.77v20.46C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.77V1.77C24 .77 23.21 0 22.23 0zM7.27 20.93H3.65V9H7.27v11.93zM5.46 7.4c-1.15 0-2.09-.94-2.09-2.09s.94-2.09 2.09-2.09 2.09.94 2.09 2.09-.94 2.09-2.09 2.09zm15.47 13.53h-3.63V14.6c0-1.4-.5-2.35-1.76-2.35-1.46 0-2.09 1.05-2.09 2.3V20.93H9.82V9h3.62v1.5c.48-.73 1.35-1.78 3.25-1.78 2.37 0 4.1 1.55 4.1 4.88v7.33z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Parth Pratyush | AI & Data Science Portfolio</p>
+            <p class="mt-1 text-gray-400">Built with <a href="https://tailwindcss.com/" target="_blank" class="hover:text-indigo-400 transition duration-300">Tailwind CSS</a>.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Gemini API Integration -->
+    <script>
+        // Constants for the Gemini API
+        const apiKey = ""; 
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+        
+        // UI Elements
+        const promptInput = document.getElementById('project-prompt');
+        const generateButton = document.getElementById('generate-button');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const outputArea = document.getElementById('output-area');
+        const geminiOutputDiv = document.getElementById('gemini-output');
+        const errorMessageDiv = document.getElementById('error-message');
+
+        /**
+         * Converts Markdown text to HTML for display.
+         * Simplistic conversion for this application (handles bold, lists, and headers).
+         * @param {string} markdownText - The text in markdown format.
+         * @returns {string} The HTML string.
+         */
+        function markdownToHtml(markdownText) {
+            let html = markdownText;
+            
+            // Convert **bold** to <strong>
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            
+            // Convert ### Header to <h4> (using h4 to keep it smaller than h3)
+            html = html.replace(/### (.*)/g, '<h4 class="text-lg font-semibold mt-4 mb-2">$1</h4>');
+            
+            // Convert ## Header to <h3>
+            html = html.replace(/## (.*)/g, '<h3 class="text-xl font-bold mt-6 mb-3 text-indigo-700">$1</h3>');
+            
+            // Convert lists (simple unordered list format)
+            html = html.replace(/^\* (.*)/gm, '<li>$1</li>');
+            
+            // Wrap consecutive <li> elements in <ul>
+            html = html.replace(/((?:<li>.*?<\/li>[\n\r]*)+)/gs, (match) => {
+                // Check if the match is already wrapped in ul
+                if (match.trim().startsWith('<ul')) return match;
+                return `<ul class="list-disc list-inside ml-5 mb-4">${match}</ul>`;
+            });
+            
+            // Convert newlines to paragraphs (simple approach)
+            html = html.split('\n\n').map(p => {
+                const trimmedP = p.trim();
+                // Check if it's not a list or a header before wrapping in a paragraph
+                if (trimmedP !== '' && !trimmedP.startsWith('<h') && !trimmedP.startsWith('<ul')) {
+                    return `<p class="mb-3">${trimmedP}</p>`;
+                }
+                return trimmedP;
+            }).join('');
+
+            return html;
+        }
+
+
+        /**
+         * Calls the Gemini API with exponential backoff for retries.
+         * @param {object} payload - The API request payload.
+         * @param {number} retries - Current retry count.
+         * @returns {Promise<object>} The JSON response from the API.
+         */
+        async function callGeminiApi(payload, retries = 0) {
+            const maxRetries = 5;
+            const delay = 2 ** retries * 1000; // Exponential delay: 1s, 2s, 4s, 8s...
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorDetails = await response.text();
+                    console.error('API Error Response:', errorDetails);
+                    throw new Error(`HTTP error! status: ${response.status}. Details: ${errorDetails.substring(0, 100)}`);
+                }
+
+                return await response.json();
+            } catch (error) {
+                if (retries < maxRetries) {
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    return callGeminiApi(payload, retries + 1);
+                } else {
+                    console.error('Gemini API call failed after multiple retries:', error);
+                    throw new Error('Could not connect to the Data Science Assistant. Please try again.');
+                }
+            }
+        }
+
+        /**
+         * Handles the UI and logic for generating the project insight.
+         */
+        async function generateProjectInsight() {
+            const userQuery = promptInput.value.trim();
+            if (userQuery === "") {
+                errorMessageDiv.textContent = 'Please enter a project idea to generate an insight.';
+                errorMessageDiv.classList.remove('hidden');
+                outputArea.classList.add('hidden');
+                return;
+            }
+
+            // UI State: Loading
+            generateButton.disabled = true;
+            generateButton.textContent = 'Analyzing...';
+            loadingIndicator.classList.remove('hidden');
+            outputArea.classList.add('hidden');
+            errorMessageDiv.classList.add('hidden');
+            geminiOutputDiv.innerHTML = '';
+            
+            const systemPrompt = `You are a Senior Data Scientist Reviewer. Your task is to take a brief project idea and provide a concise, structured, and insightful review. The output MUST contain three sections using markdown headings (##) exactly as follows: "Suggested Project Title", "Key Challenges & Data Sources", and "Next Steps & Expansion". Do not include any introductory or concluding sentences outside of these sections.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                tools: [{ "google_search": {} }], // Use search grounding for up-to-date context on data/tech
+            };
+
+            try {
+                const result = await callGeminiApi(payload);
+                
+                const candidate = result.candidates?.[0];
+                const generatedText = candidate?.content?.parts?.[0]?.text;
+
+                if (!generatedText) {
+                    throw new Error("Received an empty or malformed response from the LLM.");
+                }
+
+                // Convert markdown response to HTML and display
+                geminiOutputDiv.innerHTML = markdownToHtml(generatedText);
+                outputArea.classList.remove('hidden');
+                
+            } catch (error) {
+                console.error('Gemini Project Analysis failed:', error);
+                errorMessageDiv.textContent = `Error: ${error.message}`;
+                errorMessageDiv.classList.remove('hidden');
+                outputArea.classList.add('hidden');
+            } finally {
+                // UI State: Done
+                generateButton.disabled = false;
+                generateButton.textContent = 'Generate Insight ✨';
+                loadingIndicator.classList.add('hidden');
+            }
+        }
+        
+        // Initialize Lucide icons on load
+        window.onload = function() {
+            lucide.createIcons();
+        };
+    </script>
+
+</body>
+</html>
